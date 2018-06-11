@@ -1,6 +1,6 @@
 # Venus
 
-Turn your sentences into Yoda speak. Built in JS.
+Swipe cards.
 
 ## Build
 
