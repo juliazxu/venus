@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {callAPI} from '../actions/actions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { callAPI } from '../actions/actions';
+import { currProductSelector } from './../selectors/productSelectors';
 
 export class Card extends React.PureComponent {
   constructor(props) {
@@ -18,28 +19,26 @@ export class Card extends React.PureComponent {
   }
 
   render() {
-    let currProduct;
-    if (this.props.allProducts && this.props.counter !== undefined) {
-      currProduct = this.props.allProducts[this.props.counter];
-    }
-    return (
-      !this.props.allProducts
-      ? <div>Loading...</div> 
-      : <div className="card flexcontainer">
+    if (!this.props.currProduct.currProduct) {
+      return (<div>Loading...</div>)
+    } else {
+      const { imageUrl, name, brand } = this.props.currProduct.currProduct;
+      return (
+        <div className="card flexcontainer">
         <div className="container">
-          <img src={currProduct.imageUrl} alt="beauty-product" />
-          <h1>{currProduct.name}</h1>
-          <h2>{currProduct.brand}</h2>
+          <img src={imageUrl} alt="beauty-product" />
+          <h1>{name}</h1>
+          <h2>{brand}</h2>
         </div>
       </div>
-    );
+      )
+    }
   }
 }
 
 const mapStateToProps = state => {
-  return {
-    allProducts: state.products.allProducts,
-    counter: state.products.counter
+  return { 
+    currProduct: currProductSelector(state) 
   }
 };
 
@@ -50,6 +49,6 @@ const matchDispatchToProps = dispatch => {
 export default connect(mapStateToProps, matchDispatchToProps)(Card);
 
 Card.propTypes = {
-  allProducts: PropTypes.object,
+  currProduct: PropTypes.object,
   counter: PropTypes.number,
 };

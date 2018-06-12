@@ -9,12 +9,10 @@ class Buttons extends React.PureComponent {
   }
 
   swipeLeft() {
-    console.log('nah');
     this.props.swipeLeft();
   }
 
   swipeRight() {
-    console.log('yay');
     this.props.swipeRight();
   }
 

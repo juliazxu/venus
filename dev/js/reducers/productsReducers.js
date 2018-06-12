@@ -1,8 +1,8 @@
 import { REQUEST_ALL_PRODUCTS, RECEIVE_ALL_PRODUCTS, SWIPE_RIGHT, SWIPE_LEFT } from "../constants/action-types";
 
 export const initialState = {
-  allProducts: null,
-  likedProducts: {},
+  allProducts: [],
+  likedProducts: [],
   counter: 0,
   loading: true,
 }
@@ -22,16 +22,15 @@ export function products (state = initialState, action) {
       };
     case SWIPE_RIGHT:
       return { 
-        ...state, 
-        likedProducts: Object.assign(state.allProducts[state.counter], state.likedProducts), 
+        ...state,
+        likedProducts: state.likedProducts.concat(state.allProducts[state.counter]), 
         counter: state.counter + 1 
       };
     case SWIPE_LEFT:
       return { 
         ...state,
-        likedProducts: Object.assign(state.allProducts[state.counter], state.likedProducts),
         counter: state.counter + 1 
-      };      
+      };
     default:
       return state;
   }
