@@ -6,13 +6,6 @@ import { callAPI } from '../actions/actions';
 import { currProductSelector } from './../selectors/productSelectors';
 
 export class Card extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      counter: 0,
-    }
-  }
 
   componentDidMount() {
     this.props.callAPI();

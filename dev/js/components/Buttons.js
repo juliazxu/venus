@@ -4,9 +4,6 @@ import { bindActionCreators } from 'redux';
 import { swipeRight, swipeLeft } from '../actions/actions';
 
 class Buttons extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
 
   swipeLeft() {
     this.props.swipeLeft();
