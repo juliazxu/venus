@@ -1,4 +1,3 @@
-// import {convert} from './../services/yodify';
 import { REQUEST_ALL_PRODUCTS, RECEIVE_ALL_PRODUCTS, SWIPE_RIGHT, SWIPE_LEFT } from "../constants/action-types";
 import { api } from './../../../api';
 
