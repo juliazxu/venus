@@ -4,7 +4,6 @@ export const initialState = {
   allProducts: [],
   likedProducts: [],
   counter: 0,
-  loading: true,
 }
 
 export function products (state = initialState, action) {
@@ -12,13 +11,11 @@ export function products (state = initialState, action) {
     case REQUEST_ALL_PRODUCTS:
       return { 
         ...state,
-        loading: true,
       };
     case RECEIVE_ALL_PRODUCTS:
       return { 
         ...state,
         allProducts: action.payload.hits,
-        loading: false
       };
     case SWIPE_RIGHT:
       return { 
