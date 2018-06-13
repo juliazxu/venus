@@ -43,7 +43,7 @@ const mapStateToProps = state => {
 };
 
 const matchDispatchToProps = dispatch => {
-  return bindActionCreators({ callAPI: callAPI }, dispatch);
+  return bindActionCreators({ callAPI }, dispatch);
 };
 
 export default connect(mapStateToProps, matchDispatchToProps)(Card);

@@ -27,7 +27,7 @@ class Buttons extends React.PureComponent {
 }
 
 const matchDispatchToProps = (dispatch) => {
-  return bindActionCreators({ swipeLeft: swipeLeft, swipeRight, swipeRight }, dispatch);
+  return bindActionCreators({ swipeLeft, swipeRight }, dispatch);
 };
 
 export default connect(null, matchDispatchToProps)(Buttons);
